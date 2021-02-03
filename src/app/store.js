@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import runActivitiesReducer from "../features/runActivities/runActivitiesSlice";
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    runActivities: runActivitiesReducer,
   },
 });
