@@ -8,7 +8,13 @@ const initialState = [
 const runAcvitiesSlice = createSlice({
   name: "runAcvities",
   initialState,
-  reducers: {},
+  reducers: {
+    addActivity: (state, action) => {
+      state.push(action.payload);
+    },
+  },
 });
+
+export const { addActivity } = runAcvitiesSlice.actions;
 
 export default runAcvitiesSlice.reducer;
