@@ -1,18 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
   { id: "1", title: "a run!", distance: 3 },
-  { id: "2", title: "another run", content: 4 },
+  { id: "2", title: "another run", distance: 4 },
 ];
 
-const runAcvitiesSlice = createSlice({
-  name: "runAcvities",
+const runActivitiesSlice = createSlice({
+  name: "runActivities",
   initialState,
   reducers: {
-    addActivity: (state, action) => [...state, action.payload],
+    addActivity: {
+      reducer: (state, action) => [...state, action.payload],
+      prepare: (title, distance) => {
+        return { id: nanoid(), title, distance };
+      },
+    },
   },
 });
 
-export const { addActivity } = runAcvitiesSlice.actions;
+export const { addActivity } = runActivitiesSlice.actions;
 
-export default runAcvitiesSlice.reducer;
+export default runActivitiesSlice.reducer;

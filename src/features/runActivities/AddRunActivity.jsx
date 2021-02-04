@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addActivity } from "./runActivitiesSlice";
-import { nanoid } from "@reduxjs/toolkit";
 
 export const AddRunActivity = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ export const AddRunActivity = () => {
   };
 
   const handleSave = () => {
-    dispatch(addActivity({ id: nanoid(), title, distance }));
+    dispatch(addActivity(title, distance));
     setDistance("");
     setTitle("");
   };
