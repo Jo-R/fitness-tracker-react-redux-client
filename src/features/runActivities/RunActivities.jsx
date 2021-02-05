@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import styles from "./RunActivities.module.css";
+import { ActivityCard } from "../../components/ActivityCard/ActivitySummaryCard";
 import { selectAllActivities, fetchActivities } from "./runActivitiesSlice";
 
 export const RunActivities = () => {
@@ -24,15 +25,20 @@ export const RunActivities = () => {
       content = <p>No activities to display</p>;
       return;
     }
-    // Sort posts in reverse chronological order by datetime string
+    // Sort items in reverse chronological order by datetime string
     const orderedActivities = runList
       .slice()
       .sort((a, b) => b.date.localeCompare(a.date));
 
     content = orderedActivities.map((el) => (
       <React.Fragment key={el.id}>
-        <li>{el.title}</li>
-        <Link to={`/activity/${el.id}`}>View details</Link>
+        <li className={styles.item}>
+          <ActivityCard
+            title={el.title}
+            distance={el.distanceMile}
+            id={el.id}
+          />
+        </li>
       </React.Fragment>
     ));
   } else if (activitiesStatus === "failed") {
@@ -41,8 +47,8 @@ export const RunActivities = () => {
 
   return (
     <section>
-      <h2>Your activities</h2>
-      <ul>{content}</ul>
+      <h2 className={styles.heading}>Your activities:</h2>
+      <ul className={styles.unstyled}>{content}</ul>
     </section>
   );
 };

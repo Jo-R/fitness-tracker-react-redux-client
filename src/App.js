@@ -10,8 +10,8 @@ function App() {
       <Switch>
         <Route exact path="/">
           <>
-            <RunActivities />
             <AddRunActivity />
+            <RunActivities />
           </>
         </Route>
         <Route exact path="/activity/:runId" component={ViewRunActivity} />

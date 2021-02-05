@@ -1,0 +1,33 @@
+@import "../../index.css";
+
+.card {
+  background-color: var(--grey-100);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    var(--grey-200) 0px 8px 16px -8px;
+}
+
+.heading {
+  color: var(--main-2);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.description {
+  color: var(--grey-600);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  background-color: var(--main-3);
+  color: var(--grey-600);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
