@@ -4,6 +4,7 @@ import styles from "./RunActivities.module.css";
 import { ActivityCard } from "../../components/ActivityCard/ActivitySummaryCard";
 import { selectAllActivities, fetchActivities } from "./runActivitiesSlice";
 
+// TODO loading and error styles
 export const RunActivities = () => {
   const dispatch = useDispatch();
   const runList = useSelector(selectAllActivities);

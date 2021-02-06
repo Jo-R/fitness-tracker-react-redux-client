@@ -1,9 +1,9 @@
 :root {
-  --main-1: #c89fa2;
-  --main-2: #8c6f72;
-  --main-3: #e5e7d1;
-  --main-4: #8c8b6f;
-  --main-5: #cedaf5;
+  --main-1: #e1d1f0;
+  --main-2: #6c25f8;
+  --main-3: #dba5f3;
+  --main-4: #a6b8f3;
+  --main-5: #7481aa;
 
   --green-100: #bcebcb;
   --green-200: #87d68d;
@@ -21,7 +21,7 @@
   --grey-600: #808080;
   --grey-700: #5a5a5a;
 
-  --white: #fff;
+  --white: #f2f3f4;
 }
 
 body {
@@ -31,6 +31,7 @@ body {
   padding: 0;
 }
 
+/** TODO move this! */
 .unstyled li {
   list-style: none;
 }
