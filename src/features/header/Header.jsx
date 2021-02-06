@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./Nav.module.css";
+import styles from "./Header.module.css";
 import typeStyles from "../../sharedStyles/Typography.module.css";
 
-export const Nav = () => {
+export const Header = () => {
   return (
-    <nav className={styles.nav}>
+    <header className={styles.header}>
       <h1 className={typeStyles.bannerTitle}>Track yo' runs</h1>
-    </nav>
+    </header>
   );
 };

@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-areas: "nav" "main";
+  grid-template-areas: "header" "main";
   row-gap: 1rem;
   margin: 0;
   padding: 0;
