@@ -1,0 +1,11 @@
+.nav {
+  background-color: var(--main-5);
+  padding: 0.25rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--main-2);
+}

@@ -1,4 +1,16 @@
 .grid {
   display: grid;
-  grid-template-rows: 10vh 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "nav" "main";
+  row-gap: 1rem;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.main {
+  grid-area: main;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }

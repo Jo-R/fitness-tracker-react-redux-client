@@ -22,16 +22,24 @@ export const AddRunActivity = () => {
   };
 
   return (
-    <div>
-      <label htmlFor="titleInput">Title</label>
-      <input id="titleInput" value={title} onChange={handleTitleInput}></input>
-      <label htmlFor="distanceInput">distance</label>
-      <input
-        id="distanceInput"
-        value={distance}
-        onChange={handleDistanceInput}
-      ></input>
-      <button onClick={handleSave}>Save</button>
-    </div>
+    <section>
+      <form onSubmit={handleSave}>
+        <label htmlFor="titleInput">Title</label>
+        <input
+          id="titleInput"
+          value={title}
+          onChange={handleTitleInput}
+        ></input>
+        <label htmlFor="distanceInput">distance</label>
+        <input
+          id="distanceInput"
+          value={distance}
+          onChange={handleDistanceInput}
+        ></input>
+        <button onClick={handleSave} type="submit">
+          Save
+        </button>
+      </form>
+    </section>
   );
 };

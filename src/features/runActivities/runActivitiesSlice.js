@@ -44,7 +44,7 @@ const runActivitiesSlice = createSlice({
     },
     [fetchActivities.rejected]: (state, action) => {
       state.status = "failed";
-      state.error = action.error.message;
+      state.error = "Sorry, something went wrong.";
     },
   },
 });
