@@ -1,20 +1,16 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { AddRunActivity } from "./features/runActivities/AddRunActivity";
-import { RunActivities } from "./features/runActivities/RunActivities";
-import { ViewRunActivity } from "./features/runActivities/ViewRunActivity";
+import { ActivityDetailPage } from "./layout/ActivityDetailPage";
+import { HomePage } from "./layout/HomePage";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <>
-            <AddRunActivity />
-            <RunActivities />
-          </>
+          <HomePage />
         </Route>
-        <Route exact path="/activity/:runId" component={ViewRunActivity} />
+        <Route exact path="/activity/:runId" component={ActivityDetailPage} />
       </Switch>
     </BrowserRouter>
   );
