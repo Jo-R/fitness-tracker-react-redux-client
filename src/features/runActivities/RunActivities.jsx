@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./RunActivities.module.css";
+import typeStyles from "../../sharedStyles/Typography.module.css";
 import { ActivityCard } from "../../components/ActivityCard/ActivitySummaryCard";
 import { selectAllActivities, fetchActivities } from "./runActivitiesSlice";
 
@@ -48,7 +49,7 @@ export const RunActivities = () => {
 
   return (
     <section>
-      <h2 className={styles.heading}>Your activities:</h2>
+      <h2 className={typeStyles.sectionHeading}>Your activities:</h2>
       <ul className={styles.unstyled}>{content}</ul>
     </section>
   );

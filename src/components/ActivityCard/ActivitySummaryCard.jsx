@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./ActivityCard.module.css";
+import typeStyles from "../../sharedStyles/Typography.module.css";
 import { Link } from "react-router-dom";
 import { Card } from "../Card/Card";
 
 export const ActivityCard = ({ title, distance, id }) => {
   return (
     <Card>
-      <p className={styles.heading}>{title}</p>
+      <h3 className={typeStyles.cardHeading}>{title}</h3>
       <div className={styles.content}>
         <p className={styles.description}>You ran {distance} miles</p>
         <Link to={`/activity/${id}`} className={styles.link}>
