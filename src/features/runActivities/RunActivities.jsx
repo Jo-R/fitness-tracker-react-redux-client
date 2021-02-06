@@ -30,7 +30,7 @@ export const RunActivities = () => {
     // Sort items in reverse chronological order by datetime string
     const orderedActivities = runList
       .slice()
-      .sort((a, b) => b.date.localeCompare(a.date));
+      .sort((a, b) => a.date.localeCompare(b.date));
 
     content = orderedActivities.map((el) => (
       <React.Fragment key={el.id}>

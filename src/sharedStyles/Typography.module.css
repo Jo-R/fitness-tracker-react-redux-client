@@ -15,3 +15,11 @@
   font-weight: 700;
   font-size: 2rem;
 }
+
+.greyText {
+  color: var(--grey-700);
+}
+
+.blackText {
+  color: rgb(39, 38, 38);
+}
