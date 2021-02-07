@@ -4,7 +4,9 @@ import { addRunActivity, getRunActivitiesForUser } from "../../api/runActivity";
 export const fetchActivities = createAsyncThunk(
   "runActivities/fetchActivities",
   async () => {
-    const response = await getRunActivitiesForUser();
+    const response = await getRunActivitiesForUser(
+      "d30e52b0-304c-4aa1-3c68-08d888b124c0"
+    );
     return response.items;
   }
 );
@@ -14,7 +16,6 @@ export const addNewRun = createAsyncThunk(
   async (newActivity) => {
     console.log(Date.now().toLocaleString());
     // TODO sort out hard coded fields
-    // TODO failure handling is no good
     const date = new Date();
     const response = await addRunActivity({
       userId: "d30e52b0-304c-4aa1-3c68-08d888b124c0",
@@ -43,7 +44,6 @@ const runActivitiesSlice = createSlice({
     },
     [fetchActivities.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      // Add any fetched items to the array
       state.items = state.items.concat(action.payload);
     },
     [fetchActivities.rejected]: (state, action) => {
@@ -51,7 +51,6 @@ const runActivitiesSlice = createSlice({
       state.error = "Sorry, something went wrong.";
     },
     [addNewRun.fulfilled]: (state, action) => {
-      // We can directly add the new run object to our array
       state.items.push(action.payload);
     },
   },

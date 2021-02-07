@@ -4,7 +4,6 @@ import { selectActivityById } from "./runActivitiesSlice";
 import { Card } from "../../components/Card/Card";
 import typeStyles from "../../sharedStyles/Typography.module.css";
 
-// TODO mock map image and other details
 export const ViewRunActivity = ({ match }) => {
   const runId = match.params.runId;
 

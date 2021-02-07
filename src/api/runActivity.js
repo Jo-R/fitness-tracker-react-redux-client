@@ -1,5 +1,6 @@
 import Api from "./api";
 
+// TODO sort out error handling for api calls
 export const getRunActivityById = async (id) => {
   try {
     const response = await Api.get(`/RunActivity/${id}`);
@@ -18,11 +19,11 @@ export const addRunActivity = async (activity) => {
   }
 };
 
-// TODO sort out hard coded id and paging
-export const getRunActivitiesForUser = async () => {
+// TODO rmeove hard coded-ness from paging
+export const getRunActivitiesForUser = async (userId) => {
   try {
     const response = await Api.get(
-      `/RunActivity/user/d30e52b0-304c-4aa1-3c68-08d888b124c0?pageNumber=1&pageSize=50`
+      `/RunActivity/user/${userId}?pageNumber=1&pageSize=50`
     );
     return response;
   } catch (error) {

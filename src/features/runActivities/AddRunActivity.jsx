@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewRun } from "./runActivitiesSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
+import styles from "./AddRunActivity.module.css";
+import typeStyles from "../../sharedStyles/Typography.module.css";
+import { Card } from "../../components/Card/Card";
 
 export const AddRunActivity = () => {
   const dispatch = useDispatch();
@@ -30,6 +33,7 @@ export const AddRunActivity = () => {
         setDistance("");
         setTitle("");
       } catch (err) {
+        // TODO display this error properly
         console.error("Failed to save the run: ", err);
       } finally {
         setAddRequestStatus("idle");
@@ -39,23 +43,35 @@ export const AddRunActivity = () => {
 
   return (
     <section>
-      <form onSubmit={handleSave}>
-        <label htmlFor="titleInput">Title</label>
-        <input
-          id="titleInput"
-          value={title}
-          onChange={handleTitleInput}
-        ></input>
-        <label htmlFor="distanceInput">distance</label>
-        <input
-          id="distanceInput"
-          value={distance}
-          onChange={handleDistanceInput}
-        ></input>
-        <button onClick={handleSave} type="submit" disabled={!canSave}>
-          Save
-        </button>
-      </form>
+      <Card>
+        <form onSubmit={handleSave}>
+          <h3 className={typeStyles.sectionHeading}>Add new run</h3>
+          <div className={styles.grid}>
+            <label htmlFor="titleInput">Title</label>
+            <input
+              id="titleInput"
+              value={title}
+              onChange={handleTitleInput}
+            ></input>
+            <label htmlFor="distanceInput">distance</label>
+            <input
+              id="distanceInput"
+              value={distance}
+              onChange={handleDistanceInput}
+            ></input>
+          </div>
+          <div className={styles.rightAlign}>
+            <button
+              onClick={handleSave}
+              type="submit"
+              disabled={!canSave}
+              className={styles.btn}
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </Card>
     </section>
   );
 };
