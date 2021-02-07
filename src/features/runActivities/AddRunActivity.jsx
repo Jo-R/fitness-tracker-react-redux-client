@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addActivity } from "./runActivitiesSlice";
+import { addNewRun } from "./runActivitiesSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 export const AddRunActivity = () => {
   const dispatch = useDispatch();
   const [distance, setDistance] = useState("");
   const [title, setTitle] = useState("");
+  const [addRequestStatus, setAddRequestStatus] = useState("idle");
 
   const handleTitleInput = (evt) => {
     setTitle(evt.target.value);
@@ -15,10 +17,24 @@ export const AddRunActivity = () => {
     setDistance(evt.target.value);
   };
 
-  const handleSave = () => {
-    dispatch(addActivity(title, distance));
-    setDistance("");
-    setTitle("");
+  const canSave =
+    [title, distance].every(Boolean) && addRequestStatus === "idle";
+
+  const handleSave = async (evt) => {
+    evt.preventDefault();
+    if (canSave) {
+      try {
+        setAddRequestStatus("pending");
+        const resultAction = await dispatch(addNewRun({ title, distance }));
+        unwrapResult(resultAction);
+        setDistance("");
+        setTitle("");
+      } catch (err) {
+        console.error("Failed to save the run: ", err);
+      } finally {
+        setAddRequestStatus("idle");
+      }
+    }
   };
 
   return (
@@ -36,7 +52,7 @@ export const AddRunActivity = () => {
           value={distance}
           onChange={handleDistanceInput}
         ></input>
-        <button onClick={handleSave} type="submit">
+        <button onClick={handleSave} type="submit" disabled={!canSave}>
           Save
         </button>
       </form>
