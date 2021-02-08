@@ -6,7 +6,7 @@ import styles from "./AddRunActivity.module.css";
 import typeStyles from "../../sharedStyles/Typography.module.css";
 import { Card } from "../../components/Card/Card";
 
-export const AddRunActivity = () => {
+export const AddRunActivity = ({ className }) => {
   const dispatch = useDispatch();
   const [distance, setDistance] = useState("");
   const [title, setTitle] = useState("");
@@ -42,7 +42,7 @@ export const AddRunActivity = () => {
   };
 
   return (
-    <section>
+    <section className={className}>
       <Card>
         <form onSubmit={handleSave}>
           <h3 className={typeStyles.sectionHeading}>Add new run</h3>

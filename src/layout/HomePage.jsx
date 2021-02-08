@@ -6,8 +6,8 @@ import { RunActivities } from "../features/runActivities/RunActivities";
 export const HomePage = ({ children, props }) => {
   return (
     <PageLayout>
-      <RunActivities {...props} />
       <AddRunActivity {...props} />
+      <RunActivities {...props} />
     </PageLayout>
   );
 };

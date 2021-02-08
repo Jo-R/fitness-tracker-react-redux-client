@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { addRunActivity, getRunActivitiesForUser } from "../../api/runActivity";
 
+// TODO look at the normalising data stuff
 export const fetchActivities = createAsyncThunk(
   "runActivities/fetchActivities",
   async () => {
