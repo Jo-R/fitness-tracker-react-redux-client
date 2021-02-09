@@ -25,6 +25,7 @@ export const addNewRun = createAsyncThunk(
       distanceMile: parseInt(newActivity.distance),
       duration: "00:00:30",
       averageHr: 150,
+      maxHr: 190,
       averagePaceMile: "00:09:00",
       notes: "",
     });
